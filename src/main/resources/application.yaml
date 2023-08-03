@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      # Works!
+      #  - id: ui-resources
+      #    uri: forward:/index.html
+      #    predicates:
+      #      - Path=/**
+      # Doesn't work! StackOverflowError (would expect 404)
+        - id: ui-resources
+          uri: forward:/index2.html
+          predicates:
+            - Path=/**
